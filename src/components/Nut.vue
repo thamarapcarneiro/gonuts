@@ -29,24 +29,9 @@ const nutColor = colorMap[props.color];
 
 <style lang="scss" scoped>
 .nut {
-  width: 80px;
-  height: 80px;
-  /* Layered background:
-     - The top layer is a radial gradient that creates a transparent circle (20px radius)
-       in the middle, then jumps to the nut color.
-     - The bottom layer is just the nut color.
-     Because the radial gradient is on top, its transparent area shows through,
-     revealing whatever is behind the component.
-  */
-  background:
-    radial-gradient(
-      circle at center,
-      transparent 20px,
-      /* transparent inside circle */ transparent 20px,
-      /* keep it transparent exactly until 20px */ var(--nut-color) 20px
-        /* jump to the nut color immediately after */
-    ),
-    var(--nut-color);
+  width: 8rem;
+  height: 8rem;
+  background: var(--nut-color);
 
   border: 2px solid black;
 
@@ -65,5 +50,12 @@ const nutColor = colorMap[props.color];
 
   /* Make sure the element can position pseudo-elements or backgrounds properly */
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .nut {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 </style>

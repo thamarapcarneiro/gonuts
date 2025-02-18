@@ -10,7 +10,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <RouterView />
+  <div class="view">
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+@use "@/assets/style.scss";
+</style>

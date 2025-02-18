@@ -18,12 +18,26 @@ function onClick() {
 
 function nutStyle(nut: Nut, indexInStack: number) {
   const isActive = game.getters.isActive(props.index);
-  if (!isActive) return { bottom: indexInStack * 20 + 100 + "px" };
   const currentStack = game.state.state.stacks[props.index];
-  if (currentStack[currentStack.length - 1].id === nut.id)
-    return { bottom: indexInStack * 20 + 120 + "px" };
-  return { bottom: indexInStack * 20 + 100 + "px" };
+  // Define different offsets for mobile (<600px) and desktop
+  const mobileOffsetInactive = 4.5;  // example value for mobile when inactive
+  const mobileOffsetActive = 6.0;  // example value for mobile when active
+  const desktopOffsetActive = 6.0; // example value for desktop when active
+  const desktopOffsetInactive = 5.0; // example value for desktop when inactive
+
+  // Check if the screen is less than 600px wide
+  const isMobile = window.matchMedia("(max-width: 600px)").matches;
+
+  if (currentStack[currentStack.length - 1].id === nut.id && isActive) {
+    return {
+      bottom: indexInStack * 1.2 + (isMobile ? mobileOffsetActive : desktopOffsetActive) + "rem"
+    };
+  }
+  return {
+    bottom: indexInStack * 1.2 + (isMobile ? mobileOffsetInactive : desktopOffsetInactive) + "rem"
+  };
 }
+
 </script>
 
 <template>
@@ -50,7 +64,6 @@ function nutStyle(nut: Nut, indexInStack: number) {
 
   .bolt {
     width: 100%;
-    height: auto;
     display: block;
   }
 
@@ -62,4 +75,12 @@ function nutStyle(nut: Nut, indexInStack: number) {
     transition: bottom 0.1s ease-in-out;
   }
 }
+
+@media (max-width: 600px) {
+  .nut-stack {
+    height: 10rem;
+    width: 6rem;
+  }
+}
+
 </style>

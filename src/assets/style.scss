@@ -1,0 +1,14 @@
+html {
+  font-size: 16px; // Base font size for larger screens
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px; // Reduced base font size for smaller screens
+  }
+}
+
+.view {
+  display: flex;
+  flex-direction: row;
+}

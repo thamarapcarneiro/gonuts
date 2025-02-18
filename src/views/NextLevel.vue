@@ -26,7 +26,9 @@ onMounted(() => {
     <h1>Congratulations!</h1>
     <p>You just completed level {{ game.state.level }}</p>
     <p>You managed to do it in {{ game.state.elapsedTime }} seconds</p>
-    <p v-if="currentBestTime">Your best time is {{ currentBestTime }} seconds</p>
+    <p v-if="currentBestTime">
+      Your best time is {{ currentBestTime }} seconds
+    </p>
     <button @click="goToNextLevel()">Next Level</button>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import { RoutesName } from ".//routes";
+import { RoutesName } from "./routes";
 
 const routes = [
   {
@@ -17,7 +17,7 @@ const routes = [
     path: "/next",
     name: RoutesName.NextLevel,
     component: () => import("@/views/NextLevel.vue"),
-    beforeEnter: (_:never, from: {name: string}, next: ({}?) => void) => {
+    beforeEnter: (_: never, from: { name: string }, next: ({}) => void) => {
       if (from.name === RoutesName.Game) {
         next();
       } else {

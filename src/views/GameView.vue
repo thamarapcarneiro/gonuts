@@ -1,16 +1,18 @@
 <template>
-  <h1>Go Nuts!</h1>
-  <p>Level: {{ game.state.level }}</p>
-  <div class="game">
-    <Timer @update:timer="onUpdateTimer" />
-    <div class="game__board">
-      <NutStack
-        v-for="(stack, ix) in game.state.state.stacks"
-        :stack="stack"
-        :key="`stack-${ix}`"
-        class="stack"
-        :index="ix"
-      />
+  <div class="game-view">
+    <h1>Go Nuts!</h1>
+    <p>Level: {{ game.state.level }}</p>
+    <div class="game">
+      <Timer @update:timer="onUpdateTimer" />
+      <div class="game__board">
+        <NutStack
+          v-for="(stack, ix) in game.state.state.stacks"
+          :stack="stack"
+          :key="`stack-${ix}`"
+          class="stack"
+          :index="ix"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +47,7 @@ watch(
 <style lang="scss" scoped>
 .game {
   .game__board {
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
