@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import bolt from "@/assets/bolt.png";
-import NutComponent  from "@/components/Nut.vue";
+import NutComponent from "@/components/Nut.vue";
 import type { Stack } from "@/types/stack.ts";
 import { game } from "@/state/game.ts";
 import { onNutStackClick } from "@/usecases/nutStack/nutStack.ts";
-import type {Nut} from "@/types/nut.ts";
+import type { Nut } from "@/types/nut.ts";
 
 export interface NutStackProps {
   stack: Stack;
@@ -62,5 +62,4 @@ function nutStyle(nut: Nut, indexInStack: number) {
     transition: bottom 0.1s ease-in-out;
   }
 }
-
 </style>

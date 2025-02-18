@@ -39,12 +39,14 @@ const nutColor = colorMap[props.color];
      revealing whatever is behind the component.
   */
   background:
-      radial-gradient(circle at center,
-          transparent 20px,    /* transparent inside circle */
-          transparent 20px,    /* keep it transparent exactly until 20px */
-          var(--nut-color) 20px  /* jump to the nut color immediately after */
-      ),
-      var(--nut-color);
+    radial-gradient(
+      circle at center,
+      transparent 20px,
+      /* transparent inside circle */ transparent 20px,
+      /* keep it transparent exactly until 20px */ var(--nut-color) 20px
+        /* jump to the nut color immediately after */
+    ),
+    var(--nut-color);
 
   border: 2px solid black;
 

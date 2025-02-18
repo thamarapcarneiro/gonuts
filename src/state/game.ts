@@ -8,6 +8,7 @@ interface GameState {
     stacks: Nut[][];
     active: number | null;
   };
+  elapsedTime: number;
 }
 function initializeGameState(): GameState {
   return {
@@ -15,7 +16,8 @@ function initializeGameState(): GameState {
     state: {
       stacks: initializeStacks(),
       active: null
-    }
+    },
+    elapsedTime: 0
   };
 }
 const game = reactive({

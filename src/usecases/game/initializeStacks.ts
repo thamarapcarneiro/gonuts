@@ -1,5 +1,5 @@
-import { Color } from "../../types/color";
-import type { Nut } from "../../types/nut";
+import { Color } from "@/types/color.ts";
+import type { Nut } from "@/types/nut.ts";
 
 // Helper function: Fisher–Yates shuffle
 function shuffleArray<T>(array: T[]): T[] {
