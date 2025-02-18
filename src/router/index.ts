@@ -17,14 +17,14 @@ const routes = [
     path: "/next",
     name: RoutesName.NextLevel,
     component: () => import("@/views/NextLevel.vue"),
-    beforeEnter: (to, from, next) => {
+    beforeEnter: (_:never, from: {name: string}, next: ({}?) => void) => {
       if (from.name === RoutesName.Game) {
         next();
       } else {
         next({ name: RoutesName.Home });
       }
     }
-  }
+  } as never
 ];
 
 const router = createRouter({
